@@ -12,15 +12,16 @@ import java.util.List;
 
 @FeignClient(name = "stats-server")
 public interface StatFeignClient {
-    @PostMapping("/hit")
+    @PostMapping(value = "/hit", consumes = "application/json")
     @ResponseStatus(HttpStatus.CREATED)
     CreateEndpointHitDto createHit(@Valid @RequestBody CreateEndpointHitDto statDto) throws FeignException;
 
     @GetMapping("/stats")
     @ResponseStatus(HttpStatus.OK)
-    List<ViewStatsDto> getStats(@RequestParam(value = "start", required = false) String start,
-                                @RequestParam(value = "end", required = false) String end,
-                                @RequestParam(value = "uris", required = false) List<String> uris,
-                                @RequestParam(value = "unique", required = false) Boolean unique)
-            throws FeignException;
+    List<ViewStatsDto> getStats(
+            @RequestParam(value = "start", required = false) String start,
+            @RequestParam(value = "end", required = false) String end,
+            @RequestParam(value = "uris", required = false) List<String> uris,
+            @RequestParam(value = "unique", required = false) Boolean unique
+    ) throws FeignException;
 }
