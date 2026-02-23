@@ -1,0 +1,38 @@
+application:
+  name: comments-service
+
+spring:
+  jpa:
+    hibernate:
+      ddl-auto: update
+      format_sql: true
+    jdbc:
+      time_zone: UTC
+  sql:
+    init:
+      mode: always
+  datasource:
+    driverClassName: org.postgresql.Driver
+    url: jdbc:postgresql://localhost:6544/comments_service
+    username: localuser
+    password: localpass
+
+stat-service:
+  stat-server-id: stats-server
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+
+logging:
+  level:
+    ru.yandex.practicum.comments: DEBUG
+    org.springframework.orm.jpa: WARN
+    org.springframework.orm.jpa.JpaTransactionManager: WARN
+    org.springframework.transaction: WARN
+    org.springframework.transaction.interceptor: WARN
+
+server:
+  port: 0
