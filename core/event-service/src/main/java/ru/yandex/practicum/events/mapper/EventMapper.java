@@ -20,17 +20,16 @@ public interface EventMapper {
     @Mapping(target = "id", source = "event.id")
     @Mapping(target = "initiator", expression = "java(userShortDto != null ? userShortDto : null)")
     @Mapping(target = "category", expression = "java(categoryDto != null ? categoryDto : null)")
-    EventShortDto toEventShortDto(Event event, UserShortDto userShortDto, CategoryDto categoryDto, Integer confirmedRequests, Long views);
+    EventShortDto toEventShortDto(Event event, UserShortDto userShortDto, CategoryDto categoryDto, Integer confirmedRequests, Double rating);
 
     @Named("toEventShortWithoutStats")
     @Mapping(target = "confirmedRequests", ignore = true)
-    @Mapping(target = "views", ignore = true)
     EventShortDto toEventShortWithoutStats(Event event);
 
     @Mapping(target = "id", source = "event.id")
     @Mapping(target = "initiator", expression = "java(userShortDto != null ? userShortDto : null)")
     @Mapping(target = "category", expression = "java(categoryDto != null ? categoryDto : null)")
-    EventFullDto toEventFullDto(Event event, UserShortDto userShortDto, CategoryDto categoryDto, Integer confirmedRequests, Long views);
+    EventFullDto toEventFullDto(Event event, UserShortDto userShortDto, CategoryDto categoryDto, Integer confirmedRequests, Double rating);
 
     @Mapping(target = "id", ignore = true)
     @Mapping(target = "initiatorId", ignore = true)

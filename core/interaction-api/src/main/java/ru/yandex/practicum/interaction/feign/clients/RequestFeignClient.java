@@ -28,4 +28,10 @@ public interface RequestFeignClient {
             @RequestParam("event-id") Long eventId,
             @RequestBody EventRequestStatusUpdateRequest request
     );
+
+    @GetMapping("/api/requests/get-request-user-and-event/user/{user-id}/event/{event-id}")
+    ParticipationRequestDto getUserRequest(
+            @PathVariable("user-id") Long userId,
+            @PathVariable("event-id") Long eventId
+    );
 }

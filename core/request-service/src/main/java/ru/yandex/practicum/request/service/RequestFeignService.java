@@ -13,4 +13,6 @@ public interface RequestFeignService {
     List<ParticipationRequestDto> getRequestsByEvent(Long userId, Long eventId);
 
     EventRequestStatusUpdateResult updateRequestStatus(Long userId, Long eventId, EventRequestStatusUpdateRequest request);
+
+    ParticipationRequestDto getUserRequest(Long userId, Long eventId);
 }

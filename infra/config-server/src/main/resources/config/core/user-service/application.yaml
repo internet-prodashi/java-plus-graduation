@@ -5,9 +5,9 @@ spring:
   jpa:
     hibernate:
       ddl-auto: update
-      format_sql: true
+      format-sql: true
     jdbc:
-      time_zone: UTC
+      time-zone: UTC
   sql:
     init:
       mode: always
@@ -16,20 +16,22 @@ spring:
     url: jdbc:postgresql://localhost:6547/user_service
     username: localuser
     password: localpass
+  management:
+    endpoints:
+      web:
+        exposure:
+          include: "*"
 
-management:
-  endpoints:
-    web:
-      exposure:
-        include: "*"
+grpc:
+  server:
+    port: 0
+
+server:
+  port: 0
 
 logging:
   level:
-    ru.yandex.practicum.user: DEBUG
     org.springframework.orm.jpa: WARN
     org.springframework.orm.jpa.JpaTransactionManager: WARN
     org.springframework.transaction: WARN
     org.springframework.transaction.interceptor: WARN
-
-server:
-  port: 0

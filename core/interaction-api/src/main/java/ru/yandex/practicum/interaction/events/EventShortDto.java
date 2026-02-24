@@ -24,6 +24,6 @@ public record EventShortDto(
 
         String title,
 
-        Long views
+        Double rating
 ) {
 }

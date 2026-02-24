@@ -41,6 +41,6 @@ public record EventFullDto(
 
         String title,
 
-        Long views
+        Double rating
 ) {
 }

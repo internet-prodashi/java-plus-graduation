@@ -9,6 +9,7 @@ import ru.yandex.practicum.request.model.Request;
 import ru.yandex.practicum.interaction.request.enums.RequestStatus;
 
 import java.util.List;
+import java.util.Optional;
 
 public interface RequestRepository extends JpaRepository<Request, Long> {
     @Query("""
@@ -44,4 +45,6 @@ public interface RequestRepository extends JpaRepository<Request, Long> {
     int countByEventIdAndStatus(Long id, RequestStatus requestStatus);
 
     List<Request> findAllByEventIdAndStatus(Long eventId, RequestStatus requestStatus);
+
+    Optional<Request> findByRequesterIdAndEventId(Long userId, Long eventId);
 }
