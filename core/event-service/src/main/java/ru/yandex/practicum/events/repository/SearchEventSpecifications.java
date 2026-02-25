@@ -19,7 +19,6 @@ public class SearchEventSpecifications {
     public static Specification<Event> addWhereUsers(List<Long> userIds) {
         return (root, query, criteriaBuilder) -> {
             if (userIds == null || userIds.isEmpty()) return criteriaBuilder.conjunction();
-            //return root.get("initiatorId").get("id").in(userIds);
             return root.get("initiatorId").in(userIds);
         };
     }

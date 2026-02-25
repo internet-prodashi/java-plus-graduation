@@ -1,0 +1,30 @@
+application:
+  name: analyzer
+
+grpc:
+  server:
+    port: 0
+
+spring:
+  datasource:
+    driverClassName: org.postgresql.Driver
+    url: jdbc:postgresql://localhost:6542/analyzer_server
+    username: localuser
+    password: localpass
+  jpa:
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        format_sql: true
+    jdbc:
+      time_zone: UTC
+
+kafka:
+  bootstrap-servers: localhost:9092
+  group-id:
+    similarity: event.similarity-group
+    actions: user.action-group
+  action-topic: stats.user-actions.v1
+  similarity-topic: stats.events-similarity.v1
+  auto-commit: false

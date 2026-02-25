@@ -24,4 +24,8 @@ public interface EventService {
     List<EventShortDto> getEventsPublic(SearchEventPublicRequest requestParams, Pageable pageable, String ip);
 
     EventFullDto getEventByIdPublic(Long eventId, String ip);
+
+    List<EventShortDto> getRecommendation(Long userId, int maxResult);
+
+    void addLikeToEvent(Long eventId, Long userId);
 }

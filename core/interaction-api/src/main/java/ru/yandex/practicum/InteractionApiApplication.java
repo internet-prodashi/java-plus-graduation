@@ -7,7 +7,7 @@ import org.springframework.cloud.openfeign.EnableFeignClients;
 
 @SpringBootApplication
 @ConfigurationPropertiesScan
-@EnableFeignClients(basePackages = {"ru.yandex.practicum.interaction.feign.clients", "ru.practicum.client"})
+@EnableFeignClients(basePackages = {"ru.yandex.practicum.interaction.feign.clients"})
 public class InteractionApiApplication {
     public static void main(String[] args) {
         SpringApplication.run(InteractionApiApplication.class, args);

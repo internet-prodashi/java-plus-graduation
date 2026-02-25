@@ -43,4 +43,13 @@ public class FeignRequestController {
         log.info("Controller: updateRequestStatus with userId: {}, eventId: {}, request: {}", userId, eventId, request);
         return requestFeignService.updateRequestStatus(userId, eventId, request);
     }
+
+    @GetMapping("/api/requests/get-request-user-and-event/user/{user-id}/event/{event-id}")
+    public ParticipationRequestDto getUserRequest(
+            @PathVariable("user-id") Long userId,
+            @PathVariable("event-id") Long eventId
+    ) {
+        log.info("Controller: getUserRequest with userId: {}, eventId: {}", userId, eventId);
+        return requestFeignService.getUserRequest(userId, eventId);
+    }
 }

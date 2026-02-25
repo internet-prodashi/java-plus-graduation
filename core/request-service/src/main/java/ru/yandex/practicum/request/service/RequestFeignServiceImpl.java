@@ -119,6 +119,13 @@ public class RequestFeignServiceImpl implements RequestFeignService {
         return requestMapper.toEventRequestStatusUpdateResultDto(confirmedRequests, rejectedRequests);
     }
 
+    @Override
+    public ParticipationRequestDto getUserRequest(Long userId, Long eventId) {
+        Request request = requestRepository.findByRequesterIdAndEventId(userId, eventId)
+                .orElseThrow(() -> new NotFoundException("Request not found for userId " + userId));
+        return requestMapper.toDto(request);
+    }
+
     private void validateAllRequestsExist(List<Long> requestedIds, List<Request> foundRequests) {
         List<Long> foundIds = foundRequests.stream()
                 .map(Request::getId)
