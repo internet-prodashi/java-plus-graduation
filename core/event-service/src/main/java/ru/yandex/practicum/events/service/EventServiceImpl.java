@@ -93,7 +93,6 @@ public class EventServiceImpl implements EventService {
                         userFeignClient.getUserShortDtoById(event.getInitiatorId()),
                         categoryFeignClient.getCategoryById(event.getCategoryId()),
                         stats.confirmedRequests().getOrDefault(event.getId(), 0),
-                        //stats.views().getOrDefault(event.getId(), 0L)
                         eventRatingMap.getOrDefault(event.getId(), 0.0)
                 ))
                 .toList();
@@ -192,7 +191,6 @@ public class EventServiceImpl implements EventService {
                         categoryFeignClient.getCategoryById(event.getCategoryId()),
                         stats.confirmedRequests().getOrDefault(event.getId(), 0),
                         eventRatingMap.getOrDefault(event.getId(), 0.0)
-                        //stats.views().getOrDefault(event.getId(), 0L)
                 ))
                 .toList();
     }
@@ -272,7 +270,6 @@ public class EventServiceImpl implements EventService {
                         categoryFeignClient.getCategoryById(event.getCategoryId()),
                         stats.confirmedRequests().getOrDefault(event.getId(), 0),
                         eventRatingMap.getOrDefault(event.getId(), 0.0)
-                        //stats.views().getOrDefault(event.getId(), 0L)
                 ))
                 .toList();
 
@@ -342,7 +339,6 @@ public class EventServiceImpl implements EventService {
                 categoryDto,
                 confirmedRequests.getOrDefault(event.getId(), 0),
                 eventRatingMap.getOrDefault(event.getId(), 0.0)
-                //views.getOrDefault(event.getId(), 0L)
         );
     }
 

@@ -56,7 +56,6 @@ public class EventFeignServiceImpl implements EventFeignService {
                 categoryDto,
                 stats.confirmedRequests().getOrDefault(event.getId(), 0),
                 eventRatingMap.getOrDefault(event.getId(), 0.0)
-                //stats.views().getOrDefault(event.getId(), 0L)
         );
     }
 
@@ -72,7 +71,6 @@ public class EventFeignServiceImpl implements EventFeignService {
                         categoryFeignClient.getCategoryById(event.getCategoryId()),
                         stats.confirmedRequests().getOrDefault(event.getId(), 0),
                         eventRatingMap.getOrDefault(event.getId(), 0.0)
-                        //stats.views().getOrDefault(event.getId(), 0L)
                 ))
                 .toList();
     }
